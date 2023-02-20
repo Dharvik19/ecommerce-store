@@ -6,7 +6,7 @@ const productsArr = [
     
     price: 100,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
+    imageUrl: './images/Album 1.png',
     
     },
     
@@ -16,7 +16,7 @@ const productsArr = [
     
     price: 50,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
+    imageUrl: './images/Album 2.png',
     
     },
     
@@ -26,7 +26,7 @@ const productsArr = [
     
     price: 70,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
+    imageUrl: './images/Album 3.png',
     
     },
     
@@ -36,7 +36,7 @@ const productsArr = [
     
     price: 100,
     
-    imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
+    imageUrl: './images/Album 4.png',
     
     }
     
