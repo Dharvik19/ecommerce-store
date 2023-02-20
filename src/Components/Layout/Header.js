@@ -30,7 +30,7 @@ const Header = (props) => {
                     </div>
 
                     {/* Cart Button */}
-                    <HeaderCartButton/>
+                    <HeaderCartButton onClick={props.onShowCart}/>
                 </div>
             </nav>
         </>
