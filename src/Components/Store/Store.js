@@ -1,26 +1,30 @@
 import React from "react";
 import productsArr from "../Products/Products";
+import { Col, Container, Row } from "react-bootstrap";
 const Store = (props) => {
   
   return (
-    <div>
-      <div className="col-2">
+    <Container>
+      <div >
+      <Row>
       {productsArr.map((item) => (
-        <>
-          <div className="container-sm">
-                <p className="">{item.title}</p>
-              <img src={item.imageUrl}></img>
-              <div className="row">
+        <Container style={{width:"30rem"}}>
+          <Col style={{width:"20rem"}} className="container-sm">
+                <h3 className="">{item.title}</h3>
+              <img style={{alignItems:"centre"}}src={item.imageUrl}></img>
+              <div className="row mt-2">
                 <p className="col">Rs{item.price}</p>
-                <button type="button" class="btn btn-primary btn-sm col">Add</button>
+                <button type="button" class="btn btn-primary btn-sm col float-right">Add</button>
               </div>
-          </div>
-        </>
+          </Col>
+      
+        </Container>
       ))}
-      </div>
+      </Row>
       <br />
       <span>Total Amount: Rs. 0</span>
     </div>
+    </Container>
   );
 };
 
