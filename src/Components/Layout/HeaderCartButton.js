@@ -1,11 +1,17 @@
-import React from "react";
+import React,{useContext} from "react";
 import Button from "react-bootstrap/esm/Button";
-const HeaderCartButton=()=>{
+import CartContext from "../../Store/Cart-context";
+const HeaderCartButton=(props)=>{
+   const cartcntx =  useContext(CartContext);
+   const count = cartcntx.items.length;
+
     return(
         <>
-            <Button className="btn btn-primary">
+            <Button onClick={props.onClick} style={{width:"5rem"}}className="btn btn-primary">
                 Cart
+                <div className="d-flex float-end"style={{color: 'white'}}>{count}</div>
             </Button>
+            
         </>
     )
 }
