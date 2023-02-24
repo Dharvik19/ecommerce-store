@@ -7,14 +7,15 @@ const CartItem=(props)=>{
           <div className="row">
             
           <h3 className="col">{props.title}</h3>
-            <h4 className="col">Rs{props.price}</h4>
+            <h4 className={classes.price}>Rs{props.price}</h4>
             <span>{props.amount}</span>
+            
             <Button
-              onClick={props.onClose}
+              onClick={props.onRemove}
               type="button"
-              className=" btn btn-danger col-2 btn m-3"
+              className=" btn btn-danger col-2 btn-sm m-3"
             >
-              remove
+              X
             </Button>
           </div>
         </li>
