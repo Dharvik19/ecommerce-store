@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-bootstrap";
+import {Link} from 'react-router-dom'
 import HeaderCartButton from "./HeaderCartButton";
 
 const Header = (props) => {
@@ -18,13 +19,13 @@ const Header = (props) => {
                     <div className="collapse navbar-collapse" id="navBar1">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a href="#" className="nav-link active" style={{fontSize:"1.2rem"}} aria-current="page">Home</a>
+                                <Link to={"/home"} className="nav-link active" style={{fontSize:"1.2rem"}} aria-current="page">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link active"  style={{fontSize:"1.2rem"}} aria-current="page">Store</a>
+                                <Link to={"/store"} className="nav-link active"  style={{fontSize:"1.2rem"}} aria-current="page">Store</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link active"  style={{fontSize:"1.2rem"}}>About</a>
+                                <Link to={"/about"} className="nav-link active"  style={{fontSize:"1.2rem"}}>About</Link>
                             </li>
                         </ul>
                     </div>
@@ -34,6 +35,12 @@ const Header = (props) => {
                     
                 </div>
             </nav>
+            
+            <div style={{marginTop:"3rem"}}>
+                <section>
+                    <div style={{height:"50px", color:"white",width:"100%",fontSize:"40px"}} className="d-flex justify-content-center align-items-center bg-dark">THE GENERICS</div>
+                </section>
+            </div>
         </>
     );
 };

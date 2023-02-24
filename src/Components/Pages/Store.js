@@ -1,18 +1,21 @@
 import React, { useContext, useState } from "react";
 import productsArr from "../Products/Products";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Card,Container, Row } from "react-bootstrap";
 import CartContext from "../../Store/Cart-context";
+import classes from '../Cart/CartItem.module.css';
+import Header from "../Layout/Header";
+import Footer from "../Layout/Footer";
 const Store = (props) => {
   const cartcntx = useContext(CartContext);
   const [itemList, setItemExist] = useState(false);
-
+  // {render an error modal using itemList}
   const addItemToCartHandler =(item)=>{
     const existingItemIndex = cartcntx.items.findIndex((itm)=>itm.id===item.id);
-    // if(existingItemIndex !== -1){
-    //   setItemExist(true);
-    //   return;
-
-    // }
+    if(existingItemIndex !== -1){
+      setItemExist(true);
+      window.alert("item already exixts in the cart");
+      return;
+    }
     cartcntx.addItem({
       id:item.id,
       title:item.title,
@@ -22,9 +25,10 @@ const Store = (props) => {
   }
   return (
       <>
+      
       <section>
-        <div style={{height:"50px", color:"white",width:"100%",fontSize:"40px"}} className="d-flex justify-content-center align-items-center bg-dark">THE GENERICS</div>
-      </section>
+        <Header></Header>
+        </section>
     <Container>
       <Row className="justify-content-center">
         {productsArr.map((item) => (
@@ -33,15 +37,18 @@ const Store = (props) => {
               className="justify-content-center"
               style={{ width: "30rem" }}
             >
-              <Col style={{ width: "20rem" }} className="container-sm">
-                <Container >
-                <h3 className="">{item.title}</h3>
-                <img  src={item.imageUrl} alt="images"></img>
-                <div className="row mt-2">
-                  <p className="col">Rs{item.price}</p>
+              <Col style={{ width: "25rem" }} className="container-sm d-flex justify-content-center" >
+                <Container className="mt-3 rounded border border-3 border-dark ">
+                <h3 className="text-center mt-2" style={{color:"Black"}}>{item.title}</h3>
+                  <div className="d-flex justify-content-center align-items-center">
+                    <img style={{width:"15rem"}}className="m-3 img-fluid"  src={item.imageUrl} alt="images"></img>
+                  </div>
+                <div style={{width:"20rem"}}className="row text-center mt-2">
+                  <p style={{fontSize:"1.7rem", fontWeight:"bold"}}className="col text-center d-flex justify-content-center">Rs{item.price}</p>
                   <button
                     type="button"
-                    class="btn btn-primary btn mb-2 float-end col" onClick={addItemToCartHandler.bind(null,item)}
+                    
+                    className="col btn btn-primary mb-2"  onClick={addItemToCartHandler.bind(null,item)}
                   >
                     Add
                   </button>
@@ -53,10 +60,13 @@ const Store = (props) => {
         ))}
       </Row>
       <br />
-      <span className=" d-flex  justify-content-center">
-        Total Amount: Rs. 0
-      </span>
+      <div className="d-flex justify-content-center">
+        <span style={{fontSize:"1.5rem"}} className={classes.summary}>Total Amount: </span>
+        <span className={classes.amount}>Rs. {cartcntx.totalAmount}</span>
+      </div>
+      
     </Container>
+    <Footer></Footer>
       </>
   );
 };
