@@ -6,8 +6,9 @@ import Footer from './Components/Layout/Footer';
 import CartProvider from './Store/CartProvider';
 import Home from './Components/Pages/Home';
 import About from './Components/Pages/About';
-import {  Route} from 'react-router-dom';
+import { Redirect, Switch, Route} from 'react-router-dom';
 import ContactUs from './Components/Pages/ContactUs';
+import ProductDetails from './Components/Pages/ProductDetails';
 
 const API_URl = 'https://ecommercewebsite-9adbf-default-rtdb.firebaseio.com/contactus.json';
 function App() {
@@ -35,11 +36,16 @@ function App() {
       <Header onShowCart={showCartHandler}></Header>
        
        {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
-       
-      <Route path='/home'><Home /></Route>
-      <Route path='/store'><Store /></Route>
-      <Route path='/about'><About /></Route>
-      <Route path='/contactUs'><ContactUs onPost={onPostDataHandler}/></Route>
+       <Switch>
+        <Route exact path='/'>
+          <Redirect to='/store' />
+        </Route>
+        <Route path='/home'><Home /></Route>
+        <Route exact path='/store'><Store /></Route>
+        <Route path='/about'><About /></Route>
+        <Route path='/contact-us'><ContactUs onPost={onPostDataHandler} /></Route>
+        <Route path='/store/:productId'><ProductDetails /></Route>
+      </Switch>
       <Footer />
        </CartProvider>
      
