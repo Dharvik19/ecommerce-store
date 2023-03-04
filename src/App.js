@@ -9,7 +9,7 @@ import About from './Components/Pages/About';
 import { Redirect, Switch, Route} from 'react-router-dom';
 import ContactUs from './Components/Pages/ContactUs';
 import ProductDetails from './Components/Pages/ProductDetails';
-
+import Login from './Components/Pages/Login';
 const API_URl = 'https://ecommercewebsite-9adbf-default-rtdb.firebaseio.com/contactus.json';
 function App() {
 
@@ -38,13 +38,15 @@ function App() {
        {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
        <Switch>
         <Route exact path='/'>
-          <Redirect to='/store' />
+          <Redirect to='/login' />
         </Route>
+        <Route path='/login'><Login/></Route>
         <Route path='/home'><Home /></Route>
         <Route exact path='/store'><Store /></Route>
         <Route path='/about'><About /></Route>
-        <Route path='/contact-us'><ContactUs onPost={onPostDataHandler} /></Route>
+        <Route path='/contact-Us'><ContactUs onPost={onPostDataHandler} /></Route>
         <Route path='/store/:productId'><ProductDetails /></Route>
+        
       </Switch>
       <Footer />
        </CartProvider>

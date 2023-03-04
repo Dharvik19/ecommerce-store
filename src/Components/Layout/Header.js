@@ -27,7 +27,10 @@ const Header = (props) => {
                                 <NavLink to="/about" className="nav-link"  style={{fontSize:"1.2rem"}}>About</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink to="/contactUs" className="nav-link"  style={{fontSize:"1.2rem"}}>Contact Us</NavLink>
+                                <NavLink to="/contact-Us" className="nav-link"  style={{fontSize:"1.2rem"}}>Contact Us</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to='/login' className='nav-link' style={{fontSize:"1.2rem"}}>Login</NavLink>
                             </li>
                         </ul>
                     </div>
