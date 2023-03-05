@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import Header from './Components/Layout/Header';
 import Store from './Components/Pages/Store';
 import Cart from './Components/Cart/Cart';
@@ -10,9 +10,10 @@ import { Redirect, Switch, Route} from 'react-router-dom';
 import ContactUs from './Components/Pages/ContactUs';
 import ProductDetails from './Components/Pages/ProductDetails';
 import Login from './Components/Pages/Login';
+import AuthContext from './FireBaseAuthentication/auth-context';
 const API_URl = 'https://ecommercewebsite-9adbf-default-rtdb.firebaseio.com/contactus.json';
 function App() {
-
+  const authCtx = useContext(AuthContext); 
     const[cartIsShown, setCartIsShow] = useState(false);
     const showCartHandler =()=>{
       setCartIsShow(true);
@@ -35,18 +36,19 @@ function App() {
       <CartProvider>
       <Header onShowCart={showCartHandler}></Header>
        
-       {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
+       {  authCtx.isLoggedIn && cartIsShown  && <Cart onClose={hideCartHandler}></Cart>}
        <Switch>
         <Route exact path='/'>
           <Redirect to='/login' />
         </Route>
-        <Route path='/login'><Login/></Route>
-        <Route path='/home'><Home /></Route>
-        <Route exact path='/store'><Store /></Route>
+        
+        {authCtx.isLoggedIn && <Route path='/home'><Home /></Route>}
+        {authCtx.isLoggedIn && <Route  path='/store'><Store /></Route>}
         <Route path='/about'><About /></Route>
         <Route path='/contact-Us'><ContactUs onPost={onPostDataHandler} /></Route>
         <Route path='/store/:productId'><ProductDetails /></Route>
-        
+        <Route path='/login'><Login/></Route>
+        <Route path='*'> <Redirect to='/'/></Route>
       </Switch>
       <Footer />
        </CartProvider>
