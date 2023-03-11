@@ -1,51 +1,49 @@
-import React,{useReducer} from "react";
+import React,{useState} from "react";
 import CartContext from "./Cart-context";
 
-const defaultCartState = {
-    items:[],
-    totalAmount : 0
-}
 
-const cartReducer = (state,action)=>{
-    if(action.type==="ADD"){
-        const updateItems = state.items.concat(action.item);
-        const updateTotalAmount = state.totalAmount + action.item.price;
-        return{
-            items:updateItems,
-            totalAmount:updateTotalAmount
-        }
-
-    }else if(action.type === 'REMOVE'){
-      const itemIndex = state.items.findIndex((itm) => itm.id === action.id);
-      const itemToRemove = state.items[itemIndex]; 
-      const updatedTotalAmount = state.totalAmount - itemToRemove.price;
-      const updatedItemsList = state.items.filter((itm) => itm.id !== action.id);
-      return {
-          items: updatedItemsList,
-          totalAmount: updatedTotalAmount
-      }
-    }
-    return defaultCartState;
-}
 const CartProvider = (props) => {
-    const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCartState);
-  const addItemToCartHamdler = (item) => {
-    dispatchCartAction({type:"ADD", item:item})
+  const [cart, setCart] = useState([]);
+  const addItemToCartHandler = (item, index) => {
+    console.log(item);
+    let isPresent = false;
+    cart.forEach((product) => {
+      if (item.title === product.title) {
+        isPresent = true;
+      }
+    });
+    if (isPresent) {
+      return;
+    }
+    setCart([...cart, item]);
+  };
+  const  IncreaseAndDecrease = (item,d) => {
+    let ind = -1;
+    cart.forEach((data,index)=>{
+        if(data.title===item.title){
+            ind =index
+        }
+    })
+    const tempArr = cart;
+    tempArr[ind].amount = Number(tempArr[ind].amount) + d;
+    if(tempArr[ind].amount===0){
+        tempArr[ind].amount =1;
+    }
+    setCart([...tempArr])
   };
 
-  const removeItemFromCartHandler = (id) => {
-    dispatchCartAction({type: 'REMOVE', id: id})
+  const cartcontext = {
+    items: cart,
+    incAndDecFun :IncreaseAndDecrease,
+    totalAmount: 0,
+    addItem: addItemToCartHandler,
+    removeItem: setCart,
   };
-  const cartContext = {
-    items: cartState.items,
-    totalAmount: cartState.totalAmount,
-    addItem: addItemToCartHamdler,
-    removeItem: removeItemFromCartHandler,
-  };
-  return( 
-  <CartContext.Provider  value={cartContext}>
-    {props.children};
-    </CartContext.Provider>)
-    ;
+
+  return (
+    <CartContext.Provider value={cartcontext}>
+      {props.children}
+    </CartContext.Provider>
+  );
 };
 export default CartProvider;
