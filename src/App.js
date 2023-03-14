@@ -11,6 +11,7 @@ import ContactUs from './Components/Pages/ContactUs';
 import ProductDetails from './Components/Pages/ProductDetails';
 import Login from './Components/Pages/Login';
 import AuthContext from './FireBaseAuthentication/auth-context';
+import AuthProvider from './FireBaseAuthentication/AuthProvider';
 const API_URl = 'https://ecommercewebsite-9adbf-default-rtdb.firebaseio.com/contactus.json';
 function App() {
   const authCtx = useContext(AuthContext); 
@@ -33,6 +34,7 @@ function App() {
       console.log(user);
     }
   return (
+    <AuthProvider>
       <CartProvider>
       <Header onShowCart={showCartHandler}></Header>
        
@@ -43,16 +45,16 @@ function App() {
         </Route>
         
         {authCtx.isLoggedIn && <Route path='/home'><Home /></Route>}
-        {authCtx.isLoggedIn && <Route  path='/store'><Store /></Route>}
+        {authCtx.isLoggedIn && <Route exact path='/store'><Store /></Route>}
         <Route path='/about'><About /></Route>
         <Route path='/contact-Us'><ContactUs onPost={onPostDataHandler} /></Route>
-        <Route path='/store/:productId'><ProductDetails /></Route>
         <Route path='/login'><Login/></Route>
+        <Route path='/store/:productId'><ProductDetails /></Route>
         <Route path='*'> <Redirect to='/'/></Route>
       </Switch>
       <Footer />
        </CartProvider>
-     
+       </AuthProvider>
    
   );
 }
