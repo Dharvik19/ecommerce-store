@@ -1,0 +1,38 @@
+.card{
+    width: 10rem ;
+    height:118px;
+    text-align: center;
+    /* align-items: center; */
+     
+    margin:none;
+  }  
+  
+  .title {
+    justify-content: center;
+    text-align: center;
+  display: inline-block;
+    border:1px solid  lightcyan;
+  }
+   
+  .price {
+    margin-left:60px;
+    display:inline-block;
+    text-align: center;
+  }
+  .quantity {
+    margin-left: 70px;
+    display: inline-block;
+    border:1px solid cyan;
+   padding:2px 15px 2px 15px ;
+  }
+  
+  .removeButton {
+    float: right;
+    
+  }
+  
+  .button {
+    margin:4px 4px;
+    background-color:orangered;
+    border:1px  salmon solid
+  }
