@@ -1,0 +1,15 @@
+.mainNav{
+    background: #202639d9;
+    box-shadow: 0 8px 32px 0 #07080d5e;
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+}
+
+.nav-link{
+    color: white;
+}
