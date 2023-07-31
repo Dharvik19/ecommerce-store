@@ -1,28 +1,57 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import classes from './About.module.css';
-import Header from "../Layout/Header";
+import classes from "./About.module.css";
 
-const About =()=>{
-        return(
-            <>
-                
-                <Header></Header>
-                <h1 className="text-center m-4">
-                    About us
-                </h1>
-                <Container style={{ width:"60rem"}}>
-                        <div className="row">
-                        <div className={classes['img']}>
-                        <img  src="./images/Album 4.png"></img>
-                       
-                        <div style={{fontSize:"1.3rem"}} className={classes.text}>
-                        Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of sorrows, hates no prosecutors will unfold in the enduring of which were born in it? Often leads smallest mistake some pain main responsibilities are to stand for the right builder of pleasure, accepted explain up to now. , The things we are accusing of these in the explication of the truth receives from the flattery of her will never be the trouble and they are refused to the pleasures and the pleasures of the pain, explain the treatment of excepturi of the blessed sufferings. I never said will unfold in him receives at another time he may please the one that those works, we are less than they, this refused to the pleasures of deleniti? Those are! Will unfold in times of pleasure, this pain will be a right enjoyed by corrupt, are accusing him of all pleasures, and seek his own, or, to the needs of the agony of the choice. We hate the fellow.
-Lorem ipsum dolor, sit amet consectetur rebates. The distinction, that arise from or to. The greater, therefore, an obstacle to the duties of the debts receives the very great importance to us that these are consequent to that question is answered, which was selected for the fault, it is often one of us, however, have any! Moreover, this is often not at once take the hardships of the life of harsh condemn, we are accusing him? Him whom something large cisterns.
-                        </div> </div>
-                        </div>
-                </Container>
-            </>
-        )
-}
+
+const About = () => {
+  return (
+    <Container style={{marginTop:"3rem"}}>
+    <Container className="mt-2 mb-3" style={{ height: "5rem" }}>
+        <section
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "7rem" }}
+        >
+          <div>
+            <h1 style={{borderBottom:"2px solid #ff4c76",letterSpacing:"5px"}}>ALBUMS</h1>
+          </div>
+        </section>  
+      </Container>      
+      <Container style={{ maxWidth: "60rem",height:"100vh" }}>
+        <div className={classes["row"]}>
+          <div>
+            <div className={classes["img"]}>
+              <img src="./images/Album4.png" alt="aboutImage"></img>
+            </div>
+            <div  className={classes.text}>
+              Lorem ipsum carrots enhanced rebates. Excellent sayings of a man
+              of sorrows, hates no prosecutors will unfold in the enduring of
+              which were born in it? Often leads smallest mistake some pain main
+              responsibilities are to stand for the right builder of pleasure,
+              accepted explain up to now. , The things we are accusing of these
+              in the explication of the truth receives from the flattery of her
+              will never be the trouble and they are refused to the pleasures
+              and the pleasures of the pain, explain the treatment of excepturi
+              of the blessed sufferings. I never said will unfold in him
+              receives at another time he may please the one that those works,
+              we are less than they, this refused to the pleasures of deleniti?
+              Those are! Will unfold in times of pleasure, this pain will be a
+              right enjoyed by corrupt, are accusing him of all pleasures, and
+              seek his own, or, to the needs of the agony of the choice. We hate
+              the fellow. Lorem ipsum dolor, sit amet consectetur rebates. The
+              distinction, that arise from or to. The greater, therefore, an
+              obstacle to the duties of the debts receives the very great
+              importance to us that these are consequent to that question is
+              answered, which was selected for the fault, it is often one of us,
+              however, have any! Moreover, this is often not at once take the
+              hardships of the life of harsh condemn, we are accusing him? Him
+              whom something large cisterns.
+              
+            </div>
+          </div>
+        </div>
+      </Container>
+      
+    </Container>
+  );
+};
 export default About;

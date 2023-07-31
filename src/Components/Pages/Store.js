@@ -1,129 +1,107 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import productsArr from "../Products/Products";
 import { productsArr2 } from "../Products/Products";
-// import{productsArr, productsArr2} from "../Products/Products"
-import { Col,Container, Row } from "react-bootstrap";
-import CartContext from "../../Store/Cart-context";
+import { Col, Container, Row, Button } from "react-bootstrap";
+import { cartActions } from "../../Store/CartSlice";
+import { useDispatch,useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import classes from '../Cart/CartItem.module.css';
-import axios from 'axios';
-import AuthContext from "../../FireBaseAuthentication/auth-context";
+import classes from './Store.module.css'
+
 const Store = (props) => {
-  const cartcntx = useContext(CartContext);
-  const authCntx = useContext(AuthContext);
-  const [itemList, setItemExist] = useState(false);
+  
+  const cart = useSelector((state)=>state.cart.items);
+  const dispatch = useDispatch();
   // {render an error modal using itemList}
-  const addItemToCartHandler =(item)=>{
-    const existingItemIndex = cartcntx.items.findIndex((itm)=>itm.id===item.id);
-    if(existingItemIndex !== -1){
-      setItemExist(true);
-      window.alert("item already exixts in the cart");
-      return;
-    }
-    cartcntx.addItem({
-      id:item.id,
-      title:item.title,
-      price:item.price,
-      amount:1
-    });
-    const totalAmount = cartcntx.totalAmount;
-    const title = item.title;
-    const price = item.price;
-    const details = {
-      title,
-      price,
-      totalAmount
-    }
-     console.log(title, price);
-    // axios.post(`https://crudcrud.com/api/76dc3d78df924a208809d0a9e452f9a1/cartDetails/${authCntx.initialToken}`, details).then((res)=>{
-    //   console.log(res);
-    // }).catch((err)=>{
-    //   console.log(err+'error in post');
-    // })
+  const [clicked, setIsClicked] = useState(false);
+  const heartHandler =()=>{
+    setIsClicked((prevState)=>prevState = !prevState);
   }
   return (
-      <>
-      
-      
-    <Container>
-      <Row className="justify-content-center">
-        {productsArr.map((item) => (
-          
-          <div style={{ width: "30rem" }}>
-            <Container
-              className="justify-content-center"
-              style={{ width: "30rem" }}
-            >
-              <Col style={{ width: "25rem" }} className="container-sm d-flex justify-content-center" >
-                <Container style={{borderRadius:"10px"}}className="mt-3  border border-3 shadow-sm ">
-               <Link to={`/store/${item.id}`}>
-               <h3 className="text-center mt-2" style={{color:"Black"}}>{item.title}</h3>
-               </Link >
-                  <div className="d-flex justify-content-center align-items-center">
-                    <img style={{width:"15rem"}}className="m-3 img-fluid"  src={item.imageUrl} alt="images"></img>
-                  </div>
-                <div style={{width:"20rem"}}className="row text-center mt-2">
-                  <p style={{fontSize:"1.7rem", fontWeight:"bold"}}className="col text-center d-flex justify-content-center">Rs{item.price}</p>
-                  <button
-                    type="button"
-                    style={{borderRadius:"10px"}}
-                    className="col btn btn-primary mb-2"  onClick={addItemToCartHandler.bind(null,item)}
-                  >
-                    Add
-                  </button>
-                </div>
-                </Container>
-              </Col>
-            </Container>
+    <Container style={{marginTop:"4rem"}}>
+      <Container className="mt-2" style={{ height: "5rem" }}>
+        <section
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "7rem" }}
+        >
+          <div>
+            <h1 style={{borderBottom:"2px solid #ff4c76",letterSpacing:"5px"}}>ALBUMS</h1>
           </div>
-        ))}
-      </Row>
-      <br />
-    <Container style={{height:"5rem",color:"red"}}>
-           <section>
-                 <div style={{height:"50px", color:"Black",width:"100%",fontSize:"40px"}} className="d-flex justify-content-center align-items-center">MERCH</div>
-           </section>
-    </Container>
-    </Container>
-    <Container>
-      <Row className="justify-content-center">
-        {productsArr2.map((item) => (
-          
-          <div style={{ width: "30rem" }}>
-            <Container
-              className="justify-content-center"
-              style={{ width: "30rem" }}
-            >
-              <Col style={{ width: "25rem" }} className="container-sm d-flex justify-content-center" >
-                <Container style={{borderRadius:"10px"}}className="mt-3  border border-3 shadow-sm ">
-               <Link to={`/store/${item.id}`}>
-               <h3 className="text-center mt-2" style={{color:"Black"}}>{item.title}</h3>
-               </Link >
-                  <div className="d-flex justify-content-center align-items-center">
-                    <img style={{width:"15rem"}}className="m-3 img-fluid"  src={item.imageUrl} alt="images"></img>
-                  </div>
-                <div style={{width:"20rem"}}className="row text-center mt-2">
-                  <p style={{fontSize:"1.7rem", fontWeight:"bold"}}className="col text-center d-flex justify-content-center">Rs{item.price}</p>
-                  <button
-                    type="button"
-                    style={{borderRadius:"10px"}}
-                    className="col btn btn-primary mb-2"  onClick={addItemToCartHandler.bind(null,item)}
-                  >
-                    Add
-                  </button>
+        </section>  
+      </Container>
+      <section className={classes["articles"]}>{
+        productsArr.map((item)=>{
+          return(
+            
+            <div className={classes["article"]}>
+              <div className={classes["article-wrapper"]}>
+                <figure>
+                  <img src={item.imageUrl} alt="" />
+                </figure>
+                <div class={classes["article-body"]}>
+                  <Link to={`/store/${item.title}`}><h2>{item.title}</h2> </Link>
+                  <p>$ {item.price}</p>
+                  <p>
+                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+                  </p>
+                
+                    <button className={classes["actions"]} onClick={()=> 
+                            dispatch(cartActions.addToCart({
+                              id:item.id,
+                              title: item.title,
+                              price:item.price
+                            }))
+                          }>Add</button>
                 </div>
-                </Container>
-              </Col>
-            </Container>
-          </div>
-        ))}
-      </Row>
-      <br />
-      
-      
-    </Container>
+              </div>
+            </div>
+          
+          )
+        })
+      }</section>
     
-      </>
+      <Container className="mt-2" style={{ height: "5rem" }}>
+        <section
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "7rem" }}
+        >
+          <div>
+          <h1 style={{borderBottom:"2px solid #ff4c76",letterSpacing:"5px"}}>MERCH</h1>
+          </div>
+        </section>
+      </Container>
+      <section class={classes["articles"]}>{
+        productsArr2.map((item)=>{
+          return(
+            
+            <div className={classes["article"]}>
+              <div className={classes["article-wrapper"]}>
+                <figure>
+                  <img src={item.imageUrl} alt="" />
+                </figure>
+                <div class={classes["article-body"]}>
+                <Link to={`/store/merch/${item.title}`}><h2>{item.title}</h2> </Link>
+                <p>$ {item.price}</p>
+                  <p>
+                    Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+                  </p>
+                  
+                    <button className={classes["actions"]} onClick={()=> 
+                            dispatch(cartActions.addToCart({
+                              id:item.id,
+                              title: item.title,
+                              price:item.price
+                            }))
+                          }>Add</button>
+                          
+                </div>
+              </div>
+            </div>
+          
+          )
+        })
+      }</section>
+      
+    </Container>
   );
 };
 
