@@ -18,175 +18,20 @@ img{
     font-size: 1.3rem;
 }
 
-@media screen and (max-width: 600px) {
-    .text{
-        text-align: justify;
-        color: aliceblue;
-        /* margin: 1rem; */
-        font-size: 1rem;
-    }
-    .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    }
-    img{
-        width:150px;
-        padding: 0 0 0 0;
-        border-radius: 20px;
-    }
-  }
-  @media only screen and (max-width: 400) and (min-width: 200px) {
-    .text{
-        text-align: justify;
-        color: aliceblue;
-        /* margin: 1rem; */
-        font-size: 0.7rem;
-    }
-    .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    }
-    img{
-        width:100px;
-        padding: 0 0 0 0;
-        border-radius: 20px;
-    }
-  }
-  @media only screen and (max-width: 600px) and (min-width: 400px) {
-    .text{
-        text-align: justify;
-        color: aliceblue;
-        /* margin: 1rem; */
-        font-size: 0.7rem;
-    }
-    .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    }
-    img{
-        width:200px;
-        padding: 0 0 0 0;
-        border-radius: 20px;
-    }
-  }
-  @media only screen and (max-width: 800px) and (min-width: 601px) {
-    .text{
-        text-align: justify;
-        color: aliceblue;
-        /* margin: 1rem; */
-        font-size: 1.2rem;
-    }
-    .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    }
-    img{
-        width:200px;
-        padding: 0 0 0 0;
-        border-radius: 20px;
-    }
-  }
+ /* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
   
-  @media only screen and (max-width: 1200px) {
-    .text{
-        text-align: justify;
-        color: aliceblue;
-        /* margin: 1rem; */
-        font-size: 1.3rem;
-    }
-    .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    }
-    img{
-        width:200px;
-        padding: 0 0 0 0;
-        border-radius: 20px;
-    }
-  }
-
-  @media only screen and (min-width: 800px) {
-    .text{
-        text-align: justify;
-        color: aliceblue;
-        /* margin: 1rem; */
-        font-size: 1rem;
-    }
-    .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    }
-    img{
-        width:200px;
-        padding: 0 0 0 0;
-        border-radius: 20px;
-    }
-  }
-
-
-
-  @media only screen and (min-width: 960px) {
-    /* styles for browsers larger than 960px; */
-    .text{
-        text-align: justify;
-        color: aliceblue;
-        /* margin: 1rem; */
-        font-size: 1.3rem;
-        line-height: 2rem   ;
-    }
-    .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    }
-    img{
-        width:300px;
-        padding: 0 0 0 0;
-        border-radius: 20px;
-    }
-}
-@media only screen and (min-width: 1440px) {
-    /* styles for browsers larger than 1440px; */
+    /* CSS */   
     .text{
         text-align: justify;
         color: aliceblue;
         /* margin: 1rem; */
         font-size: 1.7rem;
-        line-height: 2.3rem;
-    }
-    .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    }
-    img{
-        width:300px;
-        padding: 0 0 0 0;
-        border-radius: 20px;
-    }
-}
-@media only screen and (min-width: 2000px) {
-    /* for sumo sized (mac) screens */
-    .text{
-        text-align: justify;
-        color: aliceblue;
-        /* margin: 1rem; */
-        font-size: 2.3rem;
-        line-height: 3rem   ;
+        line-height: 3rem;
     }
     .row{
     display: flex;
@@ -195,148 +40,157 @@ img{
     margin-bottom: 1rem;
     }
     img{
-        width:400px;
+        width:300px;
         padding: 0 0 0 0;
         border-radius: 20px;
     }
-}
-@media only screen and (max-width: 481px) {
-   /* styles for mobile browsers smaller than 480px; (iPhone) */
-   .text{
-    text-align: justify;
-    color: aliceblue;
-    /* margin: 1rem; */
-    font-size: 0.5rem;
-    line-height: 1rem   ;
-}
-.row{
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 1rem;
-}
-img{
-    width:150px;
-    padding: 0 0 0 0;
-    border-radius: 20px;
-}
-}
-@media only screen and (max-width: 768px) {
-   /* default iPad screens */
-   .text{
-    text-align: justify;
-    color: aliceblue;
-    /* margin: 1rem; */
-    font-size: 1rem;
-    line-height: 1.3rem;
-}
-.row{
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 1rem;
-}
-img{
-    width:150px;
-    padding: 0 0 0 0;
-    border-radius: 20px;
-}
-
-}
-/* different techniques for iPad screening */
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
-  /* For portrait layouts only */
-}
-
-@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
-  /* For landscape layouts only */
-}
-
-@media only screen and (min-width: 767px) and (max-width: 1024px){
-    /* default iPad screens */
+    
+    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    /* CSS */
     .text{
-     text-align: justify;
-     color: aliceblue;
-     /* margin: 1rem; */
-     font-size: 2rem;
-     line-height: 2rem;
- }
- .row{
- display: flex;
- align-items: center;
- justify-content: center;
- margin-bottom: 1rem;
- }
- img{
-     width:150px;
-     padding: 0 0 0 0;
-     border-radius: 20px;
- }
- 
- }
-@media only screen and (max-width: 768px) and (min-width: 450px){
-    /* default iPad screens */
+        text-align: justify;
+        color: aliceblue;
+        /* margin: 1rem; */
+        font-size: 1.7rem;
+        line-height: 2.2rem;
+    }
+    .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    }
+    img{
+        width:300px;
+        padding: 0 0 0 0;
+        border-radius: 20px;
+    }
+    
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    /* CSS */
     .text{
-     text-align: justify;
-     color: aliceblue;
-     /* margin: 1rem; */
-     font-size: 1rem;
-     line-height: 1.1rem;
- }
- .row{
- display: flex;
- align-items: center;
- justify-content: center;
- margin-bottom: 1rem;
- }
- img{
-     width:150px;
-     padding: 0 0 0 0;
-     border-radius: 20px;
- }
- 
- }
- @media only screen and (max-width: 450px) {
-    /* default iPad screens */
+        text-align: justify;
+        color: aliceblue;
+        /* margin: 1rem; */
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+    .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    }
+    img{
+        width:250px;
+        padding: 0 0 0 0;
+        border-radius: 20px;
+    }
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    /* CSS */
     .text{
-     text-align: justify;
-     color: aliceblue;
-     /* margin: 1rem; */
-     font-size: 1rem;
-     line-height: auto;
- }
- .row{
- display: flex;
- align-items: center;
- justify-content: center;
- margin-bottom: 1rem;
- }
- img{
-     width:150px;
-     padding: 0 0 0 0;
-     border-radius: 20px;
- }
- 
- }
- @media only screen and (max-width: 376px) {
-    /* default iPad screens */
+        text-align: justify;
+        color: aliceblue;
+        /* margin: 1rem; */
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+    .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    }
+    img{
+        width:250px;
+        padding: 0 0 0 0;
+        border-radius: 20px;
+    }
+    
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    /* CSS */
     .text{
-     text-align: justify;
-     color: aliceblue;
-     /* margin: 1rem; */
-     font-size: 0.8rem;
-     line-height: auto;
- }
- .row{
- display: flex;
- align-items: center;
- justify-content: center;
- margin-bottom: 1rem;
- }
- img{
-     width:150px;
-     padding: 0 0 0 0;
-     border-radius: 20px;
- }
- 
- }
+        text-align: justify;
+        color: aliceblue;
+        /* margin: 1rem; */
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    }
+    img{
+        width:200px;
+        padding: 0 0 0 0;
+        border-radius: 20px;
+    }
+    
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    
+    /* CSS */
+    .text{
+        text-align: justify;
+        color: aliceblue;
+        /* margin: 1rem; */
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+    }
+    .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    }
+    img{
+        width:120px;
+        padding: 0 0 0 0;
+        border-radius: 20px;
+    }
+    
+  }

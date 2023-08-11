@@ -5,7 +5,7 @@ import classes from "./About.module.css";
 
 const About = () => {
   return (
-    <Container style={{marginTop:"3rem"}}>
+    <Container style={{marginTop:"", marginBottom:"1rem"}}>
     <Container className="mt-2 mb-3" style={{ height: "5rem" }}>
         <section
           className="d-flex justify-content-center align-items-center"
@@ -16,7 +16,7 @@ const About = () => {
           </div>
         </section>  
       </Container>      
-      <Container style={{ maxWidth: "60rem",height:"100vh" }}>
+      <Container style={{ maxWidth: "60rem",height:"100%" }}>
         <div className={classes["row"]}>
           <div>
             <div className={classes["img"]}>
@@ -45,7 +45,6 @@ const About = () => {
               however, have any! Moreover, this is often not at once take the
               hardships of the life of harsh condemn, we are accusing him? Him
               whom something large cisterns.
-              
             </div>
           </div>
         </div>
